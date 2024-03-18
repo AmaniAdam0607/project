@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {% if object %}
+    Edit content "{{ object.title }}"
+  {% else %}
+    Add new content
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <h1 class="text-2xl leading-10 tracking-widest uppercase w-full text-center mb-4 text-blue-950 font-extrabold">
+    {% if object %}
+      Edit content "{{ object.title }}"
+    {% else %}
+      Add new content
+    {% endif %}
+  </h1>
+  <div class="module">
+    <h2 class="text-2xl font-extrabold text-blue-950 px-5 p-2 border-b-4 border-blue-950 text-center">Course info</h2>
+    <form action="" method="post" enctype="multipart/form-data" class="flex flex-col p-4 items-center">
+      {% for field in form %}
+        {% if field.field.widget.input_type == 'text' %} <!--Begin Text Input-->
+        <div class="m-2">
+          <p class="text-xl p-2 text-blue-950">{{ field.label_tag }}</p>
+          <input type="text" class="w-[500px] h-auto" name="{{ field.name }}" value="{{ field.value }}">
+        </div>
+        <!--End Text Input -->
+        {% elif field.field.widget.input_type == 'file' %} <!--Begin File Input-->
+          <input type="file" name="{{ field.name }}" class=" text-blue-600 font-mono p-4">
+        {% else %}
+        <div class="m-2"> <!--Begin TextArea input-->
+          <p class="text-xl p-2 text-blue-950">{{ field.label_tag }}</p>
+          <textarea name={{ field.name }} class="w-[500px] h-32">{{ field.value }}</textarea>
+        </div>
+        {% endif %}
+        {% endfor %}
+      {% csrf_token %}
+      <p><input type="submit" value="Save content" class="bg-blue-950 hover:bg-blue-900 w-[390px] h-16 rounded-2xl text-xl  text-white shadow-2xl flex items-center justify-center mt-4"></p>
+    </form>
+  </div>
+{% endblock %}

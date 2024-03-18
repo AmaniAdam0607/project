@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}   
+    <div class="text-2xl leading-10 tracking-widest uppercase w-full text-center mb-4 text-blue-950 font-extrabold">
+        Courses Offered
+    </div>
+    <div class="flex"> <!--Divider-->
+        <div class="bg-blue-950 w-1/6 p-4"> <!--Left sidebar-->
+            <p class="text-lg tracking-tighter font-bold text-white w-full text-center">Course Categories</p>
+            {% for subject in subjects %}
+            <p class="p-2 text-white hover:bg-blue-900">{{ subject.title }}</p>
+            {% endfor %}
+        </div>
+        <div class="grid grid-cols-3 gap-4 px-3 w-5/6"> <!--Right side (courses)-->
+            {% for course in courses %}
+            <div class="w-72 h-[430px] bg-slate-100 border-b-2 border-blue-950 hover:shadow-2xl"> <!--Course Card-->
+                <div class="aspect-w-3 aspect-h-2">
+                    <div style="background-image: url({{ course.image.url }});" class="bg-cover bg-center rounded-t-xl"></div>
+                </div>
+                <div class="w-full p-2 flex flex-col items-center">
+                    <div class="text-xl font-bold text-blue-950 tracking-tighter text-center">{{ course.title }}</div>
+                    <div class="font-semibold text-center mt-2">{{ course.overview }}</div>
+                    <div class="bg-blue-950 hover:bg-blue-900 w-[150px] h-10 rounded-2xl text-xl  text-white shadow-2xl flex items-center justify-center mb-4 mt-4">View more</div>
+                </div>
+            </div>  <!--End of course card-->
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

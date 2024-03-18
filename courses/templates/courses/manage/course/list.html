@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}My courses{% endblock %}
+
+
+{% block content %}
+<div class="p-4">
+  <h1 class="text-2xl leading-10 tracking-widest uppercase w-full text-center mb-4 text-blue-950 font-extrabold">My courses</h1>
+  <div class="module">
+    {% for course in object_list %}
+      <div class="h-32 w-[600px] border border-blue-950 p-4">
+        <div class="text-xl tracking-widest">{{ course.title }}</div>
+        <p class="flex mt-2">
+          <a href="{% url "course_edit" course.id %}" class="p-2 text-blue-500">Edit</a>
+          <a href="{% url "course_delete" course.id %}" class="p-2 text-blue-500">Delete</a>
+          <a href="{% url "course_module_update" course.id %}" class="p-2 text-blue-500">Edit modules</a>
+          {% if course.modules.count > 0 %}
+            <a href="{% url "module_content_list" course.modules.first.id %}" class="p-2 text-blue-500">
+            Manage contents</a>
+          {% endif %}
+        </p>
+      </div>
+    {% empty %}
+      <p class="text-xl tracking-widest p-8">You haven't created any courses yet.</p>
+    {% endfor %}
+    <p>
+      <a href="{% url "course_create" %}" class="bg-blue-950 hover:bg-blue-900 w-[390px] h-16 rounded-2xl text-xl  text-white shadow-2xl flex items-center justify-center mt-4">Create new course</a>
+    </p>
+  </div>
+</div>
+{% endblock %}
+

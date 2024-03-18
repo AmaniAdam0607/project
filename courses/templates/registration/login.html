@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load tailwind_filters %}
+
+{% block title %}Log-in{% endblock %}
+
+{% block content %}
+<div class="w-full h-screen flex justify-center items-center bg-blue-100">
+    <form class=" w-[512px] bg-slate-100 h-[600px] flex flex-col items-center  rounded-xl" method="post">
+    <div class="text-3xl tracking-widest leading-relaxed h-16 mt-4 text-blue-950 font-thin">Log-In</div>
+    <div class="mt-8 flex flex-col">
+    {{ form|crispy }}
+    </div>
+    {% csrf_token %}
+    <input type="submit" value="Log In" class="bg-blue-950 hover:bg-blue-900 w-[210px] h-16 rounded-2xl text-xl  text-white shadow-2xl flex items-center justify-center mb-4 mt-8">
+    <!--<div class="bg-inherit w-[390px] h-16 rounded-2xl text-xl  text-blue-950 border-blue-950 border shadow-2xl flex items-center justify-center">Create account</div>-->
+    </form>
+</div>
+{% endblock  %}
+

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load tailwind_filters %}
+
+{% block title %}
+  {% if object %}
+    Edit course "{{ object.title }}"
+  {% else %}
+    Create a new course
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <h1 class="text-2xl leading-10 tracking-widest uppercase w-full text-center mb-4 text-blue-950 font-extrabold">
+    {% if object %}
+      Edit course <em>"{{ object.title }}"</em>
+    {% else %}
+      Create a new course
+    {% endif %}
+  </h1>
+  <div>
+    <h2 class="text-2xl font-extrabold text-blue-950 px-5 p-2 border-b-4 border-blue-950 text-center">Course info</h2>
+    <form method="post" class="flex flex-col p-4 items-center">
+      {% for field in form %}
+        {% if field.field.widget.input_type == 'select' %} <!-- Begin Select Input -->
+          <div class="m-2">
+            <p class="text-xl p-2 text-blue-950">{{ field.label_tag }}</p>
+            <select name="{{ field.name }}" id="" class="w-[500px]">
+              {% for option in field.field.choices %}
+                <option value="{{ option.0 }}" {% if option.0 == field.value %} selected {% endif %}>{{ option.1 }}</option>
+              {% endfor %}
+            </select>
+          </div>
+        <!--End Select Input -->
+        {% elif field.field.widget.input_type == 'text' %} <!--Begin Text Input-->
+        <div class="m-2">
+          <p class="text-xl p-2 text-blue-950">{{ field.label_tag }}</p>
+          <input type="text" class="w-[500px] h-auto" name="{{ field.name }}" value="{{ field.value }}">
+        </div>
+        <!--End Text Input -->
+        {% else %}
+        <div class="m-2"> <!--Begin TextArea input-->
+          <p class="text-xl p-2 text-blue-950">{{ field.label_tag }}</p>
+          <textarea name={{ field.name }} class="w-[500px] h-32">{{ field.value }}</textarea>
+        </div>
+        {% endif %}
+      {% endfor %}
+      {% csrf_token %}
+      <p><input type="submit" value="Save course" class="bg-blue-950 hover:bg-blue-900 w-[390px] h-16 rounded-2xl text-xl  text-white shadow-2xl flex items-center justify-center mt-4"></p>
+    </form>
+  </div>
+{% endblock %}
+
+
+
+

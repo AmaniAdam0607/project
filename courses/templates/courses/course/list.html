@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {% if subject %}
+    {{ subject.title }} courses
+  {% else %}
+    All courses
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <h1>
+    {% if subject %}
+      <div class="text-2xl leading-10 tracking-widest uppercase w-full text-center mb-4 text-blue-950 font-extrabold">
+        {{ subject.title }} COURSES
+      </div>
+    {% else %}
+    <div class="text-2xl leading-10 tracking-widest uppercase w-full text-center mb-4 text-blue-950 font-extrabold">
+      ALL COURSES
+    </div>
+    {% endif %}
+  </h1>
+
+  <div class="flex"> <!--Divider-->
+
+    <div class="bg-blue-950 w-1/6 p-4"> <!--Left sidebar-->
+        <p class="text-lg tracking-tighter font-bold text-white w-full text-center">Course Categories</p>
+        <div class="flex flex-col"> <!--Wrapper added to keep subjects in column-->
+          <a href="{% url "course_list" %}" class="text-white w-full p-2 hover:bg-blue-900" {% if not subject %}class="selected"{% endif %}>All</a>
+          {% for s in subjects %}
+            <a href="{% url "course_list_subject" s.slug %}" class="p-2 text-white hover:bg-blue-900" {% if subject == s %}class="selected"{% endif %}>
+              {{ s.title }}
+            </a>
+          {% endfor %}
+        </div>
+    </div>
+
+    <div class="grid grid-cols-3 gap-x-0 px-10 w-5/6"> <!--Right side (courses)-->
+      {% if courses %}
+      {% for course in courses %}
+      {% with subject=course.subject %}
+      <div class="w-72 h-[430px] bg-slate-100 border-b-2 border-blue-950 hover:shadow-2xl"> <!--Course Card-->
+        <div class="aspect-w-3 aspect-h-2">
+            <div style="background-image: url({{ course.image.url }});" class="bg-cover bg-center rounded-t-xl"></div>
+        </div>
+        <div class="w-full p-2 flex flex-col items-center">
+            <div class="text-xl font-bold text-blue-950 tracking-tighter text-center">{{ course.title }}</div>
+            <div class="font-semibold text-center mt-2">{{ course.overview }}</div>
+            <a href="{% url "course_detail" course.slug %}" class="bg-blue-950 hover:bg-blue-900 w-[150px] h-10 rounded-2xl text-xl  text-white shadow-2xl flex items-center justify-center mb-4 mt-4">View more</a>
+        </div>
+      </div>  <!--End of course card-->
+      {% endwith %}
+      {% endfor %}
+      {% else %}
+        <div class="flex w-full col-span-3 items-center justify-center h-[430px]">
+          <p class="text-2xl text-blue-950 italic font-semibold font-mono">There are no courses for this category 'currently'!</p>
+        </div>
+      {% endif %}
+    </div>
+</div>
+{% endblock %}
+

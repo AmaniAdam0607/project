@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+a{
+    text-decoration: none;
+
+}
+.home {
+    background-image: radial-gradient(#1440afb4, #02155A 40%);
+ 
+  }
+  .events {
+    background-image: radial-gradient(#1440afb4, #02155A 70%);
+  }
+
+  .cetralText {
+    line-height: 1.6em;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.842);
+  }
+  
+  
+  .wave2,
+  .wave3,
+  .wave4,
+  .wave5 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+  }
+  
+  .wave2 svg,
+  .wave3 svg,
+
+  .wave5 svg {
+    display: block;
+    width: calc(144% + 1.3px);
+    height: 158px;
+  }
+  
+  .wave2 .shape-fill {
+    fill: rgb(241 245 249);
+  }
+  
+  .wave3 .shape-fill {
+    fill: #02155A;
+  }
+  
+  .shape-fill {
+    fill: rgb(241 245 249);
+  }
+  
+  .wave5 .shape-fill {
+    fill: rgb(226 232 240);
+  }
+  
+ .shape-fill {
+    fill: #162846;
+  }
+  
+  @media only screen and (max-width: 767px) {
+  
+    .wave2 svg,
+    .wave3 svg,
+    .wave5 svg {
+      height: 100px;
+    }
+  
+    .navSuper {
+      background: #d4cfcf5d;
+    }
+  
+    .navItem:hover {
+      background-color: rgb(30 58 138);
+    }
+  }
+  
+  @media only screen and (max-width: 1200px) {
+    .navSuper {
+      background: #d4cfcf5d;
+    }
+  
+    .navItem:hover {
+      background-color: rgb(30 58 138);
+    }
+
+    .btnHidn{
+        display: block;
+    }
+
+    .nav{
+        padding: 0 8px;
+    }
+    
+    .toggleNav{
+        display: none;
+    }
+
+    
+  
+  }
+  
+  
+  @media only screen and (min-width: 1200px) and (max-width: 12500px) {
+    .nav {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  
+  @media only screen and (min-width: 1200px) {
+    .navSuper {
+      width: auto;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      box-shadow: none;
+    }
+  
+    .navUl {
+      margin-right: 0px;
+      display: flex;
+      flex-direction: row;
+      width: fit-content;
+    }
+    
+  
+    
+    .btnHidn{
+        display: none;
+    }
+  }

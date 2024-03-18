@@ -1,0 +1,248 @@
+{% load tailwind_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>E-Learning</title>
+      {% tailwind_css %}
+    </head>
+    <body>    
+      <div class="font-sans">
+  
+      <!-- Navigation Menu -->
+      <section class="home xl:h-[770px] relative">
+        <div class="w-full  Vbg container mx-auto ">
+  
+          <nav
+            class="py-5 md:px-8 lg:px-10 text-white flex flex-col nav lg:justify-between items-center font-extrabold w-full"
+        >
+            <div class="mb-2 md:mb-0 flex justify-between items-center px-1 w-full xl:w-fit">
+              <div class="flex justify-center items-center ">
+                <div class="bg-white rounded-full overflow-hidden w-20 h-20 ring-2 ring-white">
+                    <img src="{% static "img/lbg5.jpg" %}" alt="Avatar Image" class="object-cover w-full h-full">
+                  </div>
+                  
+                <p class="2xl:text-4xl md:text-3xl text-xl font-extrabold ml-3">E-LEARNING</p>
+              </div>
+              
+  
+              <button onclick="changeText(this)" class="block btnHidn text-white focus:outline-none" >
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="toggleNav w-full  flex flex-col  justify-between items-start  navSuper shadow-lg  px-4 rounded-lg py-3 mt-3"
+            >
+              <ul
+                class="flex text-white  flex-col justify-end space-y-1 leading-10  navUl lg:space-y-0 xl:space-x-5 lg:text-xl mb-2 w-full ">
+                <a href='#' class=" py-2 px-2 lg:py-0 lg:px-0  navItem  rounded-lg ">Home</li>
+                <a href='#' class=" py-2 px-2 lg:py-0 lg:px-0  navItem  rounded-lg ">About Us</a>
+                <a href='#' class=" py-2 px-2 lg:py-0 lg:px-0  navItem  rounded-lg ">Courses</a>
+                <a href='#' class=" py-2 px-2 lg:py-0 lg:px-0  navItem  rounded-lg ">Contact</a>
+              </ul>
+              <v-btn rounded="xl" color="orange" elevation="4" size="large" class="xl:ml-[1em]  2xl:ml-[1em]">Login</v-btn>
+            </div>
+          </nav>
+  
+          <div class="grid   grid-cols-1 md:grid-cols-2  md:px-8 lg:px-10" data-aos="fade-up">
+            <div id="home"
+              class="px-2 md:px-0 space-y-6 py-4 md:h-[650px] xl:h-[470px] text-white flex justify-center flex-col">
+              <div class="cetralText font-extrabold text-xl md:text-3xl lg:text-4xl  xl:text-6xl leading-6">
+                Starting <span class="text-orange-400">learning</span>
+                with us now 
+              </div>
+              <div class="text-sm md:text-lg lg:text-lg text-slate-300">
+                we are dedicated to making a positive impact on communities by
+              providing valuable research materials, offering accessible online
+              ICT education, and leveraging technology as a powerful platform to
+              support those with educational needs.
+              </div>
+              <a class="hover:shadow-xl text-lg md:text-xl w-36 flex justify-center py-2 mt-4 px-3 rounded-xl text-black hover:bg-slate-200 bg-slate-200" href="{% url "course_list" %}">Get Started</a>
+            </div>
+            <div class="flex justify-center items-center">
+              <img class="h-64 md:h-96" src="{% static "img/contentPic/e-l3.svg" %}">
+            </div>
+          </div>
+        </div>
+        <div class="h-[158px]">
+          <div class="wave2">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+              <path
+                d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                class="shape-fill"></path>
+            </svg>
+          </div>
+        </div>
+      </section>
+  
+  
+      <section id="about" class="bg-slate-100 pb-16  h-fit relative">
+        <h1 class="text-4xl mb-6 text-center font-extrabold" data-aos="fade-up">Who Are We?</h1>
+        <h1 class="px-4 text-center mb-10" data-aos="fade-up">  Welcome to e-Learning – Empowering Through Education and Technology!</h1>
+  
+        <div
+          class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-6 md:w-[86%] lg:w-[84%] 2xl:w-[55%]  place-items-center ">
+          
+          <div class="flex rounded-xl px-4 py-10 bg-[#02155A] h-[360px]  w-[310px]  lg:w-[310px]  justify-center flex-col items-center " data-aos="fade-up">
+            <div class="inline-block bg-[#082774] h-[100px] w-[100px] rounded-xl p-3  ring-white" data-aos="fade-up">
+                <img src="#">
+            </div>
+            <p  class="text-2xl font-extrabold text-white my-6" data-aos="fade-up">Dedicated Educators</p>
+            <p  class="text-center  lg:text-md text-slate-400" data-aos="fade-up">
+                Our dedication drives us to provide valuable research materials and
+                accessible online ICT education to learners of all ages.
+            </p>
+          </div>
+
+           
+          <div class="flex rounded-xl px-4 py-10 bg-[#02155A] h-[360px]  w-[310px]  lg:w-[310px]  justify-center flex-col items-center " data-aos="fade-up">
+            <div class="inline-block bg-[#082774] h-[100px] w-[100px] rounded-xl p-3  ring-white" data-aos="fade-up">
+                <img src="#">
+            </div>
+            <p class="text-2xl font-extrabold text-white my-6" data-aos="fade-up">   Tech Advocates</p>
+            <p  class="text-center  lg:text-md text-slate-400" data-aos="fade-up">
+                We leverage technology not only for education but also as a dynamic
+            platform to support communities.
+            </p>
+          </div>
+
+
+          <div class="flex rounded-xl px-4 py-10 bg-[#02155A] h-[360px]  w-[310px]  lg:w-[310px]  justify-center flex-col items-center " data-aos="fade-up">
+            <div class="inline-block bg-[#082774] h-[100px] w-[100px] rounded-xl p-3  ring-white" data-aos="fade-up">
+                <img src="#">
+            </div>
+            <p  class="text-2xl font-extrabold text-white my-6" data-aos="fade-up">Community Catalysts</p>
+            <p  class="text-center  lg:text-md text-slate-400" data-aos="fade-up">
+                Our goal is to empower individuals and contribute to a more
+            inclusive and knowledgeable society.
+            </p>
+          </div>
+
+
+          <div class="flex rounded-xl px-4 py-10 bg-[#02155A] h-[360px]  w-[310px]  lg:w-[310px]  justify-center flex-col items-center " data-aos="fade-up">
+            <div class="inline-block bg-[#082774] h-[100px] w-[100px] rounded-xl p-3  ring-white" data-aos="fade-up">
+                <img src="#">
+            </div>
+            <p  class="text-2xl font-extrabold text-white my-6" data-aos="fade-up">lobal Connectors</p>
+            <p  class="text-center  lg:text-md text-slate-400" data-aos="fade-up">
+                With a global reach through our online platforms, we connect with
+            individuals and communities worldwide.
+            </p>
+          </div>
+          
+
+          <div class="flex rounded-xl px-4 py-10 bg-[#02155A] h-[360px]  w-[310px]  lg:w-[310px]  justify-center flex-col items-center " data-aos="fade-up">
+            <div class="inline-block bg-[#082774] h-[100px] w-[100px] rounded-xl p-3  ring-white" data-aos="fade-up">
+                <img src="#">
+            </div>
+            <p  class="text-2xl font-extrabold text-white my-6" data-aos="fade-up">Tech-Driven Educators</p>
+            <p  class="text-center  lg:text-md text-slate-400" data-aos="fade-up">
+                Committed to the digital age, We offers comprehensive online ICT
+                education programs, ensuring individuals are equipped with the tools
+                for success in tech-driven society.
+            </p>
+          </div>
+
+          <div class="flex rounded-xl px-4 py-10 bg-[#02155A] h-[360px]  w-[310px]  lg:w-[310px]  justify-center flex-col items-center " data-aos="fade-up">
+            <div class="inline-block bg-[#082774] h-[100px] w-[100px] rounded-xl p-3  ring-white" data-aos="fade-up">
+                <img src="#">
+            </div>
+            <p  class="text-2xl font-extrabold text-white my-6" data-aos="fade-up">Holistic Innovators</p>
+            <p  class="text-center  lg:text-md text-slate-400" data-aos="fade-up">
+                With a holistic approach that integrates research, education, and
+            community support, we strive for a profound impact on both
+            individuals and communities.
+            </p>
+          </div>
+        </div>
+        <div class="h-[158px]">
+          <div class="wave3 ">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+              <path
+                d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                class="shape-fill "></path>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="pb-16 px-4 md:px-10 bg-slate-200 min-h-[700px]  relative">
+        <h1 class="text-4xl text-center mb-3" data-aos="fade-up">Contacts</h1>
+        <div class="flex flex-col items-center justify-center">
+          <div data-aos="fade-up"
+            class="contact bg-white rounded-lg h-full w-full md:w-[93%] lg:w-[73%] xl:w-[70%]  flex flex-col lg:flex-row  lg:items-center">
+            <div
+              class="contact  bg-[#274472] rounded-t-lg lg:rounded-md w-full lg:w-[40%] xl:w-[30%] h-[55%]  lg:h-[400px]  lg:-translate-x-1/3 text-white px-8 py-5 lg:py-10">
+              <h2 class="text-2xl font-extrabold mb-3">Contact Info</h2>
+              <!-- conzer techological city -->
+              <div class="leading-8 mb-9">
+                <div class="mb-5 "><span class="font-extrabold">Location: </span><span class="">Must Road, Ikuti,
+                    Mbeya-Town,
+                    Mbeya, Tanzania</span></div>
+                <div class="mb-5 "><span class="font-extrabold">Email: </span><span class="">tagiccikuti@gmail.com</span>
+                </div>
+                <div class="mb-5 "><span class="font-extrabold">Contacts: </span><span class="">0765453754</span></div>
+                <!-- <div class=" mb-3"><span class="font-extrabold">Location: </span><span class="">Must Road, Ikuti, Mbeya-Town, Mbeya, Tanzania</span></div> -->
+              </div>
+            </div>
+            <div class="contact w-full my-3 mr-16" data-aos="fade-up">
+                <div class="container mx-auto p-8">
+                    <h1 class="text-2xl font-extrabold mb-5">Write a Message</h1>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="my-3 fade-right">
+                            <input type="text" name="firstname" class="bg-[#131F3F2e] text-white p-3 rounded-md w-full"
+                                placeholder="First name" required>
+                        </div>
+            
+                        <div class="my-3 fade-right">
+                            <input type="text" name="lastname" class="bg-[#131F3F2e] text-white p-3 rounded-md w-full"
+                                placeholder="Last name" required>
+                        </div>
+            
+                        <div class="my-3 fade-left">
+                            <input type="email" name="email" class="bg-[#131F3F2e] text-white p-3 rounded-md w-full"
+                                placeholder="E-mail" required>
+                        </div>
+            
+                        <div class="my-3 fade-left">
+                            <input type="tel" name="phoneNumber" class="bg-[#131F3F2e] text-white p-3 rounded-md w-full"
+                                placeholder="Phone Number" required>
+                        </div>
+            
+                        <div class="my-3 fade-right">
+                            <textarea class="bg-[#131F3F2e] text-white p-3 rounded-md w-full" placeholder="Write Message"
+                                rows="1"></textarea>
+                        </div>
+                    </div>
+            
+                    <button type="submit"
+                        class="bg-blue-700 text-white rounded-lg p-4 mt-4 hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue active:bg-blue-800">
+                        Submit
+                    </button>
+                </div>
+  
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <section id="contact" class="bg-[#162846]   ">
+        <div
+        class="justify-center text-white text-center  w-full items-center py-5 max-md:max-w-full max-md:px-5"
+      >
+        @ 2023 E-Learning all right reserved
+      </div>
+      </section>
+    </div>
+
+    <script>
+      function changeText (id){
+        id.classList.toggle("toggleNav");
+    }
+     
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {{ object.title }}
+{% endblock %}
+
+{% block content %}
+<div class="text-2xl leading-10 tracking-widest uppercase w-full text-center mb-4 text-blue-950 font-extrabold">
+  Course overview
+</div>
+  {% with subject=object.subject %}
+  <div class="h-96 w-full flex">
+    <div class="w-1/3">
+        <div class="aspect-w-3 aspect-h-3">
+            <div style="background-image: url({{ course.image.url }});" class="bg-cover bg-center"></div>
+        </div>
+    </div>
+    <div class="w-2/3 bg-slate-100 flex flex-col p-4">
+        <p class="text-3xl font-bold text-blue-950">Course Name: {{ object.title }}</p>
+        <p class="text-3xl font-bold text-blue-950">Intructor's Name: {{ object.owner }}</p>
+        <p class="text-2xl mt-2">Course Description:</p>
+        <p class="text-xl tracking-widest mt-2">{{ object.overview }}</p>
+        <div>
+            {% if request.user.is_authenticated %}
+            <form action="{% url "student_enroll_course" %}" method="post" class="flex justify-between">
+              {{ enroll_form }}
+              {% csrf_token %}
+              <div class="w-[150px] h-10 flex items-center justify-center mb-4 mt-4"></div>
+              <input type="submit" value="Enroll now" class="bg-blue-950 hover:bg-blue-900 w-[150px] h-10 rounded-2xl text-xl  text-white shadow-2xl flex items-center justify-center mb-4 mt-4"></input>
+            </form>
+            {% else %}
+            <div class="flex justify-between">
+              <div class="w-[150px] h-10 flex items-center justify-center mb-4 mt-4"></div>
+              <a href="{% url "student_registration" %}" class="bg-blue-950 hover:bg-blue-900 w-[150px] h-10 rounded-2xl  text-white shadow-2xl flex items-center justify-center mb-4 mt-4">Register to enroll</a>
+            </div>
+            {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endwith %}
+{% endblock %}
