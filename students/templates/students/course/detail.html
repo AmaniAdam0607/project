@@ -6,8 +6,22 @@
 
 {% block content %}
   <h1 class="text-2xl tracking-wider text-blue-950 font-extrabold p-4">{{ object.title }}</h1>
+
+  <div class="mb-4 w-full flex justify-center items-center md:hidden">
+
+    <select name="module" id="module" class="bg-blue-950 text-white" onchange="redirectToLink()">
+      <option value="default">Modules</option>
+      {% for m in object.modules.all %}
+          <option value="{{ s.slug }}" data-url="{% url "student_course_detail_module" object.id m.id %}" {% if subject == s %}selected{% endif %}>
+              {{ m.title }}
+          </option>
+      {% endfor %}
+    </select>
+  
+  </div>
+
 <div class="flex"> <!--Divider-->
-  <div class="bg-blue-950 w-2/6 p-4"> <!--Left sidebar-->
+  <div class="bg-blue-950 md:w-2/6 p-4 hidden md:block"> <!--Left sidebar-->
     <p class="text-lg tracking-tighter font-bold text-white w-full text-center">Modules</p>
     <ul>
       {% for m in object.modules.all %}
@@ -20,7 +34,7 @@
       {% endfor %}
     </ul>
   </div>
-  <div class="flex flex-col p-4 w-5/6 bg-blue-100"> <!--Right side (courses)-->
+  <div class="flex flex-col p-4 md:w-5/6 bg-blue-100"> <!--Right side (courses)-->
     {% for content in module.contents.all %}
       {% with item=content.item %}
         {{ item.render }}
@@ -29,4 +43,15 @@
       <div class="h-[500px] bg-blue-100 flex justify-center items-center font-bold text-blue-950 italic">No Contents in this module...the instructor is working on it!</div>
     {% endfor %}
   </div>
+
+  <script>
+    function redirectToLink() {
+        var selectBox = document.getElementById("module");
+        var selectedOption = selectBox.options[selectBox.selectedIndex];
+        var url = selectedOption.getAttribute("data-url");
+        if (url) {
+            window.location.href = url;
+        }
+    }
+  </script>
 {% endblock %}
