@@ -1,8 +1,8 @@
 <div class="flex flex-col items-center m-2">
-  <div class="w-[700px]">
+  <div class="w-[300px] md:w-[700px]">
     <div class="aspect-w-3 aspect-h-2">
       <div style="background-image: url({{ item.file.url }});" class="bg-cover rounded-t-xl"></div>
     </div>
   </div>
-  <p class="p-4 italic">Image title: {{ item.title }}</p>
+  <p class="p-4 italic text-sm md:text-xl">Image title: {{ item.title }}</p>
 </div>

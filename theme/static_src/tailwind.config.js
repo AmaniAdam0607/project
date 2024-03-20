@@ -42,6 +42,10 @@ module.exports = {
         // '../../**/*.py'
     ],
     theme: {
+        fontFamily: {
+            poppins: ["Poppins", "sans-serif"],
+            oswald: ["Oswald", "sans-serif"],
+        },
         extend: {},
     },
     plugins: [

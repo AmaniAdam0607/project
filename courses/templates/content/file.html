@@ -1,4 +1,4 @@
-<div class="w-full flex justify-between m-2">
-    <p class="font-bold">Attachment name: {{ item.title }}</p>
-    <a href="{{ item.file.url }}" class="bg-blue-950 p-2 text-white">Download attachment</a>
+<div class="w-full flex flex-col md:flex-row md:justify-between m-2  md:bg-inherit">
+    <p class="font-bold text-sm md:text-xl">Attachment name: {{ item.title }}</p>
+    <a href="{{ item.file.url }}" class="bg-blue-950 p-2 text-sm text-white">Download attachment</a>
 </div>

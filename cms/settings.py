@@ -73,7 +73,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'cms.urls'
 
 
-ALLOWED_HOSTS = ['AmaniAdam.pythonanywhere.com']
+ALLOWED_HOSTS = ['AmaniAdam.pythonanywhere.com', '127.0.0.1']
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
